@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登陆界面</title>
+<link rel="stylesheet" type="text/css" href="Login.css"/>  
+<script type="text/javascript" src="Login.js"></script>
+<style type="text/css">
+body { 
+    background-image: url("1.jpg");;  
+    background-size: cover;  
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    }
+div{
+	background-color:green;
+	position:fixed;
+	left:0px;
+	right:0px;
+	top:0px;
+	bottom:0px;
+	margin:auto;
+}
+
+
+</style>
+</head>
+<body>
+<div id="login_frame" style="height:150px;width:400px;background-color:#FFFFCC;clear:both;text-align:center;">
+    	<form method="post" action="login.js">  
+  		<p>
+        <label class="label_input">用户</label><input type="text" id="username" class="text_field"/></label>
+        </p>
+        <p>
+        <label class="label_input">密码</label><input type="text" id="password" class="text_field"/>
+        </p> 
+            <input type="button" id="btn_login" value="登录" onclick="login();"/>  
+            <a id="forget_pwd" href="forget_pwd.html">忘记密码？</a>  
+
+    	</form>  
+</div>  
+	
+</body>
+</html>
