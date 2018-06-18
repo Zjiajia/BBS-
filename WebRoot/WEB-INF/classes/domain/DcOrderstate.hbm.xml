@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-3-22 15:48:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="domain">
+ <class catalog="ordersystem" name="DcOrderstate" table="dc_orderstate">
+  <id name="osId" type="java.lang.Integer">
+   <column name="OS_id"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="osName" type="string">
+   <column length="30" name="OS_name" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="dcOrders"
+   sort="unsorted" table="dc_order">
+   <key>
+    <column name="O_state" not-null="true"/>
+   </key>
+   <one-to-many class="DcOrder"/>
+  </set>
+ </class>
+</hibernate-mapping>

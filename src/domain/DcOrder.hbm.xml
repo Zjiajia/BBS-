@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-3-22 15:48:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="domain">
+ <class catalog="ordersystem" name="DcOrder" table="dc_order">
+  <id name="OId" type="java.lang.Integer">
+   <column name="O_id"/>
+   <generator class="identity"/>
+  </id>
+  <many-to-one class="DcOrderstate" fetch="select" name="dcOrderstate">
+   <column name="O_state" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="OBeginTime" type="timestamp">
+   <column length="19" name="O_beginTime" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="OEndTime" type="timestamp">
+   <column length="19" name="O_endTime" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="OWaiterId" type="int">
+   <column name="O_waiterId" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="OTableId" type="int">
+   <column name="O_tableId" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="dcOrdercontents"
+   sort="unsorted" table="dc_ordercontent">
+   <key>
+    <column name="OC_orderId" not-null="true"/>
+   </key>
+   <one-to-many class="DcOrdercontent"/>
+  </set>
+ </class>
+</hibernate-mapping>

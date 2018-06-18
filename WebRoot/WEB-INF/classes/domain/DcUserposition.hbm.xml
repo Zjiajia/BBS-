@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-3-22 15:48:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="domain">
+ <class catalog="ordersystem" name="DcUserposition" table="dc_userposition">
+  <id name="upId" type="java.lang.Integer">
+   <column name="UP_id"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="upName" type="string">
+   <column length="30" name="UP_name" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="dcUsers"
+   sort="unsorted" table="dc_user">
+   <key>
+    <column name="U_position" not-null="true"/>
+   </key>
+   <one-to-many class="DcUser"/>
+  </set>
+ </class>
+</hibernate-mapping>

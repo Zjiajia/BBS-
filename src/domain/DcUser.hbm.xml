@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-3-22 15:48:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="domain">
+ <class catalog="ordersystem" name="DcUser" table="dc_user">
+  <id name="UId" type="java.lang.Integer">
+   <column name="U_id"/>
+   <generator class="identity"/>
+  </id>
+  <many-to-one class="DcUserposition" fetch="select" name="dcUserposition">
+   <column name="U_position" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="UAccount" type="string">
+   <column length="20" name="U_account" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="UPwd" type="string">
+   <column length="20" name="U_pwd" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="UIsLocked" type="char">
+   <column length="1" name="U_isLocked" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="UFaceImg" type="string">
+   <column length="200" name="U_faceImg"/>
+  </property>
+  <property generated="never" lazy="false" name="UName" type="string">
+   <column length="10" name="U_name" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="USex" type="char">
+   <column length="1" name="U_sex" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="UPhoneNumber" type="string">
+   <column length="20" name="U_phoneNumber"/>
+  </property>
+  <property generated="never" lazy="false" name="UAddress" type="string">
+   <column length="100" name="U_address"/>
+  </property>
+ </class>
+</hibernate-mapping>

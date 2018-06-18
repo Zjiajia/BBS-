@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-3-22 15:48:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="domain">
+ <class catalog="ordersystem" name="DcDish" table="dc_dish">
+  <id name="DId" type="java.lang.Integer">
+   <column name="D_id"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="DName" type="string">
+   <column length="30" name="D_name" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="DDescription" type="string">
+   <column length="65535" name="D_description"/>
+  </property>
+  <property generated="never" lazy="false" name="DTxt" type="string">
+   <column length="65535" name="D_txt"/>
+  </property>
+  <property generated="never" lazy="false" name="DImg" type="string">
+   <column length="200" name="D_img"/>
+  </property>
+  <property generated="never" lazy="false" name="DIsRecommended" type="char">
+   <column length="1" name="D_isRecommended" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="DPrice" type="big_decimal">
+   <column name="D_price" not-null="true" precision="10"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="dcOrdercontents"
+   sort="unsorted" table="dc_ordercontent">
+   <key>
+    <column name="OC_dishId" not-null="true"/>
+   </key>
+   <one-to-many class="DcOrdercontent"/>
+  </set>
+ </class>
+</hibernate-mapping>

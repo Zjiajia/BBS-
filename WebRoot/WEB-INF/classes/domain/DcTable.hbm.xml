@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-3-22 15:48:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="domain">
+ <class catalog="ordersystem" name="DcTable" table="dc_table">
+  <id name="TId" type="java.lang.Integer">
+   <column name="T_id"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="TIsFree" type="char">
+   <column length="1" name="T_isFree" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="TSize" type="int">
+   <column name="T_size" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>
